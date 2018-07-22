@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function  chazhi(arr) {
+            var len=arr.length;
+            //排序
+            for(var i=0;i<len;i++){
+                for(var j=i+1;j<len;j++){
+                    if(arr[i]>arr[j]){//如果前大于后，则交换位置
+                        var buffer=arr[i];
+                        arr[i]=arr[j];
+                        arr[j]=buffer;
+                    }
+
+                }
+
+            }
+            num=arr[len-1]-arr[0];//算差值
+            return num;
+        }
+        var ar=[10,5,11,7,8,9];
+        console.log(chazhi(ar));
+
+    </script>
+</head>
+<body>
+找出下列正数组的最大差值比如: [10,5,11,7,8,9]
+</body>
+</html>

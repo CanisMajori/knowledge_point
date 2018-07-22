@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function more(str) {
+            var arr=str.split("");
+            var buffer=new Array;
+            var length=arr.length;
+            for(var i=0;i<arr.length-1;i++){//传入数组从第一个开始
+                    var count=0;
+                    for(var j=0;j<arr.length;j++){//将ar[i]与前面的进行对比
+                        if(i!=j&&arr[i]==arr[j]){ //不能自己对比自己
+                            count++;//计数
+                        }
+                    }
+                    buffer[i]=count;//将每个字母出现的次数放入新数组
+            }
+            function arrayMax(arrs) {
+                var max = arrs[0];
+                for(var i = 1; i < arr.length; i++) {
+                    if(arrs[i] > max) {
+                        max = arrs[i];
+                    }
+                }
+                return max;
+            }////找出最大值
+                var max=arrayMax(buffer);//获得最多的次数
+                var a=buffer.indexOf(max);//获得次数最多的字母在数组中的下标
+                var b=arr[a];//通过下标找到值
+                return b;
+        }
+        var word="aacaccacbcbbbcbbcbbcbcvbccccccccccccc";
+        var boo=more(word);
+        console.log(boo);
+    </script>
+
+</head>
+<body>
+统计一个字符串出现最多的字母
+</body>
+</html>

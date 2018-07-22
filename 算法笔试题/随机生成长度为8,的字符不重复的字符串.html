@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function str() {
+            var str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var arr = str.split("");//拆分为数组
+            var buffer = [];//定义新数组
+            for (var i = 0; i < 8; i++) { //生成新的8位放入buffer
+                var index = Math.round(Math.random() * 61);//随机生成下标 取出字符
+                var boo = buffer.every(function (a) {  //当新数组的每一个都和随机取出的下标所对应的值不等的时候 返回真
+                    return a != arr[index];
+                });
+                if (boo) {//如果上面的条件为真就符合
+                    buffer[i] = arr[index];
+                }else{  //不为真就重新开始此次循环
+                    i=i-1;
+                }
+            }
+                return buffer.toString();//返回buffer
+        }
+        //生成数据
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+        console.log(str());
+
+
+
+
+
+    </script>
+</head>
+<body>
+随机生成长度为8,的字符不重复的字符串
+</body>
+</html>

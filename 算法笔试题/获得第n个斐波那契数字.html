@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function s(n){
+                function sum(a,b,n){
+                    if (n == 0) {
+                        return a;//这里输出最终值
+                    }
+                    else {
+                        return sum(b, a+b, n-1);
+                    }
+                }
+
+                return sum(0,1,n)
+        }
+
+
+        var n=5;
+        console.log(s(n));
+    </script>
+
+</head>
+<body>
+获得第n个斐波那契数字
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function hui(w){
+            var arr=new Array();
+            arr=w.split('');
+//            console.log(arr);
+            var length=arr.length;
+            for(var i=0;i<length/2;i++){
+                if(arr[i]!=arr[length-1]){
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        }
+        var word="io";
+        var boo=hui(word);
+        console.log("单词为"+word);
+        console.log(boo);
+    </script>
+</head>
+<body>
+<h1>判断一个单词是否是回文</h1>
+</body>
+</html>

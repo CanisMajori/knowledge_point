@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function de(ar){
+            for(var i=0;i<ar.length;i++){//传入数组从第一个开始
+                for(var j=0;j<ar.length;j++){//将ar[i]与前面的进行对比，相等就删掉
+                    if(i!=j&&ar[i]==ar[j]){ //不能自己对比自己
+                        ar.splice(j,1);//删除重复
+                    }
+                }
+            }
+            return ar;
+        }
+        var arr=[55,89,62,11,36,56,89,78,51,56,89];
+                //55  89  62  11  36  56  78  51
+        console.log(de(arr));
+    </script>
+</head>
+<body>
+<h1>
+
+    去掉一组整型数组重复的值
+</h1>
+</body>
+</html>

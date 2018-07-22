@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Node(element,left,right){//定义节点类
+            this.right=right;
+            this.left=left;
+            this.element=element;
+            this.show=function () {
+                return this.element; //返回节点值
+            };
+        }
+        function BST() {//定义二叉树类
+            this.root = null;
+            this.insert = function (element) {//插入节点
+                var node = new Node(element,null, null);//创建新节点
+                if (this.root ==null) {
+                    this.root = node;//如果根节点为空，则将新记节点置为根节点
+                }
+                else {//如果根节点不为空
+                    var current = this.root;//将根节点置为根节点
+                    var parent;
+
+                    while (true) {
+                        parent = current;
+                        if(element <current.element) {//如果插入的节点值小于当前节点
+                            current = current.left;//将当前节点置为当前节点的左孩子
+                            if (current == null) {//循环 直到当前节点为空
+                                parent.left = node;
+                                break;
+                            }
+                        } else {
+                            current = current.right;
+                            if (current == null) {//同上
+                                parent.right = node;
+                                break;
+                            }
+                        }
+                    }
+                }
+            };
+            this.inOrder=function(node){
+                if(node!=null){
+                    this.inOrder(node.left);
+                    console.log(node.show()+"");
+                    this.inOrder(node.right);
+                }
+            };//中序遍历
+            this.inOrderforEach=function (node,call) {
+                if(node!=null){
+                    this.inOrder(node.left,call);
+                    call(node);
+                    this.inOrder(node.right,call);
+                }
+            };
+            this.foreach=function (call,type) {//call=function (node) {console.log(node.show()+"")}；
+                if(type==1){
+                    this.inOrderforEach(this.root,call);
+                }
+            };
+            this.find=function (e) {//查找
+                var current = this.root;
+                while (current != null) {
+                    if (current.element == e) {
+                        return current;
+                    }
+                    else if (e < current.element) {
+                        current = current.left;
+                    }
+                    else {
+                        current = current.right;
+                    }
+                }
+                return null;
+            };
+            this.getMin=function(){
+                var current=this.root;
+                while(current.left!=null){
+                    current=current.left;
+                }
+                return current;
+            };
+            this.getMax=function(){
+                var current=this.root;
+                while(current.right!=null){
+                    current=current.right;
+                }
+                return current;
+            };
+            this.removeNode=function(element){
+                var node=this.find(element);//获得当前节点
+                if(node==null){
+                    return;
+                }//当当前节点为空时
+                var parentNode=node.parent;//父节点
+                var leftNode=node.left;//左节点
+                var rightNode=node.right;
+                //1没有左右节点的时候
+                if(leftNode==null&&rightNode==null){
+                    if(parentNode!=null){ //父节点不为空时
+                        if(parentNode.element>node.element){//比根节点小，将左边置空
+                            parentNode.left=null;
+                        }else{
+                            parentNode.right=null;//比根节点大。右子树置空
+                        }
+                    }else{//根节点为空时
+                        this.root=null;//根节点置空
+                    }
+                 //2只没有右节点的时候
+                if(rightNode==null){
+                        if(parentNode!=null){
+                            if(parent.element>node.element){
+                                parentNode.left=leftNode;
+                            }else{
+                                parentNode.right=rightNode;
+                            }
+                            if(leftNode!=null){
+                                leftNode.parent=parentNode;
+                            }
+
+                        }else{
+                            this.root=leftNode;
+                            this.root.parent=null;
+                        }
+                }
+                //只没有左节点的时候
+                else{
+                    if(parentNode!=null){
+                        //1,连接右节点
+                        if(parentNode.element>node.element){
+                            parentNode.left=right;
+                        }else{
+                            parentNode.right=right;
+                        }
+                        rightNode.parent=parentNode;
+                    }else{
+                        this.root=right;
+                        this.root.parent=null;
+                    }
+                    //左节点接到右节点上面最小节点的左边
+                    var minNode = this.getMin(rightNode);
+                    minNode.left=leftNode;
+                    if(leftNode!=null)
+                        leftNode.parent=minNode;
+                }
+                }
+            }
+        }
+
+
+        var nums=new BST();
+        nums.insert(1);
+        nums.insert(2);
+        nums.insert(3);
+        nums.insert(4);
+        console.log("升序遍历");nums.foreach(function (node) {
+            console.log(node.show()+"")
+        },1);
+        var n=nums.find(2);
+        console.log(n);  //2
+        console.log(nums.getMin());//1
+        console.log(nums.getMax());//4
+        nums.removeNode(2);
+        console.log("升序遍历");nums.foreach(function (node) {
+            console.log(node.show()+"")
+        },1);
+    </script>
+
+</head>
+<body>
+JS实现二叉查找树
+</body>
+</html>

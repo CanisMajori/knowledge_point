@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function maopao(arr){//冒泡排序
+            var length=arr.length;
+            for(var i=0;i<length-1;i++){
+                for(var j=i+1;j<length;j++){
+                    if(arr[i]>arr[j]){
+                        [arr[i],arr[j]]=[arr[j],arr[i]];
+                    }
+                }
+            }
+            return arr;
+        }
+        function select(arr){
+            var len=arr.length;
+            var min;
+            for(var i=0;i<=len-2;i++){
+                min=i;
+                for(var j=i+1;j<=len-1;j++){
+                    if(arr[min]>arr[j]){
+                        min=j;
+                    }
+                }
+                [arr[i],arr[min]]=[arr[min],arr[i]];
+            }
+            return arr;
+        }
+        function insert(arr){
+            var l=arr.length;
+            for(var i=0;i<l;i++){
+                while(i-1>=0&&arr[i]<arr[i-1]){
+                    [arr[i],arr[min]]=[arr[min],arr[i]];
+                }
+            }
+            return arr;
+        }
+        var arr=[72,54,58,30,31,78,2,77,82,72];
+        console.log(maopao(arr));
+        console.log(select(arr));
+        console.log(insert(arr));
+    </script>
+
+
+
+
+
+</head>
+<body>
+分别用冒泡、选择、插入对[72,54,58,30,31,78,2,77,82,72]排序
+</body>
+</html>

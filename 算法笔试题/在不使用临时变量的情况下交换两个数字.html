@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function swap(s,v){
+
+
+
+        //方法1
+//        b = b - a;//b=9  存储两个差值
+//        a = a + b;//a=10  a为原来b的值，即就是a加新b（b-a）的值 a+b-a=b
+//        b = a - b;//b=1   b=a-b=a+b-b=a
+        //方法2
+//        a = a ^ b;//位运算
+//        b = b ^ a;
+//        a = a ^ b;
+        //方法3
+            [a,b]=[b,a];//es6 解析构值
+        }
+        var a=1,b=10;
+        swap(a,b);
+        console.log("a为"+a+"      b为"+b);
+
+
+    </script>
+</head>
+<body>
+在不使用临时变量的情况下交换两个数字
+</body>
+</html>
