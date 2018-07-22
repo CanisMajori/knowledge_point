@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p1>见js</p1>
+    <script>
+
+        for(var i=0;i<5;i++){// 函数级作用域
+            setTimeout(function () {
+                console.log(i);
+            },5000);
+        }//过5s瞬间打出55555
+        //解决办法  闭包法
+        for (var i = 0; i < 5; i++) {
+            (function (idx) {
+                setTimeout(function () {
+                    console.log(idx);
+                }, 5);
+            })(i);
+        }
+        //解决办法  es6 let
+        for(let i=0;i<5;i++){//let块级作用域
+            setTimeout(function () {
+                console.log(i);
+            },10000);
+        }//过两秒瞬间打出01234
+
+
+    </script>
+</body>
+</html>
