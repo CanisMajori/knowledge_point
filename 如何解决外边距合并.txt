@@ -1,0 +1,6 @@
+﻿
+父子之间：
+1。设置overfolw hidden
+2。给父盒子设置padding
+3。给父盒子设置border
+
