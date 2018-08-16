@@ -4,8 +4,6 @@
 
 用引号引起来，换行的话用反引号
 
-
-
 # 查：
 
 ```SQL
@@ -140,8 +138,6 @@ ON q.qcid = c.qcid
 //两边都不能为null
 ```
 
-
-
 # 非常多的表的查询
 
 ```sql
@@ -154,11 +150,7 @@ WHERE  c.cid = 10 AND a.aid = 20 AND u.username LIKE ‘模糊查询%’
 
 ```
 
- 
-
-
-
-#### 一些常用函数：
+#### 一些常用函数：0.
 
 ​	平均数：AVG
 
@@ -167,3 +159,12 @@ WHERE  c.cid = 10 AND a.aid = 20 AND u.username LIKE ‘模糊查询%’
    	最大值：MAX
 
 ​	最小值：MIN
+
+
+
+### 查出每个部门有几个员工：
+
+```sql
+select count(id) as 员工数，
+```
+
