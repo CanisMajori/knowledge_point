@@ -34,6 +34,33 @@
         var word="aacaccacbcbbbcbbcbbcbcvbccccccccccccc";
         var boo=more(word);
         console.log(boo);
+
+        more2(word);
+
+        function more2(word) {
+            var json={};
+            for(var i=0;i<word.length;i++){
+                if(!json[word.charAt(i)]){
+                    json[word.charAt(i)]=1;
+                }else{
+                    json[word.charAt(i)]++;
+                }
+            }
+            var max=0;
+            var index='';
+            for(i in json){
+                if(json[i]>max){
+                    max=json[i];
+                    index=i;
+                }
+            }
+            console.log('字母'+index+'出现最多'+max+'次');
+        }
+
+
+
+
+
     </script>
 
 </head>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
+        //splice
         function de(ar){
             for(var i=0;i<ar.length;i++){//传入数组从第一个开始
                 for(var j=0;j<ar.length;j++){//将ar[i]与前面的进行对比，相等就删掉
@@ -14,9 +15,46 @@
             }
             return ar;
         }
-        var arr=[55,89,62,11,36,56,89,78,51,56,89];
+        //对象法 push
+        function de2(arr) {
+            var obj={};//定义对象
+            var newarr=[];//定义新数组
+            for(var i=0;i<arr.length;i++){
+                if(!obj[arr[i]]){//当对象中不存在数组中的属性时
+                    obj[arr[i]]=1;//等于1
+                    newarr.push(arr[i]);//添加到新数组
+                }
+            }
+            return newarr;
+        }
+        //indexOf();push
+        function de3(arr) {
+            var arr2=[];
+            for(var i=0;i<arr.length;i++){
+                if(arr2.indexOf(arr[i])){//数组2中找不到arr[i]
+                    arr2.push(arr[i]);
+                }
+            }
+            return arr2;
+        }
+        //过滤器法
+        function de4(arr) {
+            var arr2=arr.filter((element,index,self)=>{//element 元素  index 下标 self=arr
+                return self.indexOf(element)===index;
+                //当arr里的每一个元素的下标和indexof出来的下标一样才返回，
+                 // 即就是第一次出现的才返回
+            });
+            return arr2;
+        }
+
+
+        var arr=[55,89,62,11,36,56,89,78,51,56,89,55,89,62,11,36,56,89,78,51,56,89];
                 //55  89  62  11  36  56  78  51
         console.log(de(arr));
+        console.log(de2(arr));
+        console.log(de3(arr));
+        console.log(de4(arr));
+
     </script>
 </head>
 <body>
